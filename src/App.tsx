@@ -25,13 +25,13 @@ export class App extends React.Component<State> {
     this.timerId = window.setInterval(() => {
       this.setState({ clockName: getRandomName() });
     }, 3300);
-    document.addEventListener('click', this.handleClick);
+    document.addEventListener('click', this.clickHandler);
     document.addEventListener('contextmenu', this.handleContextMenu);
   }
 
   componentWillUnmount() {
     window.clearInterval(this.timerId);
-    document.removeEventListener('click', this.handleClick);
+    document.removeEventListener('click', this.clickHandler);
     document.removeEventListener('contextmenu', this.handleContextMenu);
   }
 
@@ -40,7 +40,7 @@ export class App extends React.Component<State> {
     this.setState({ hasClock: false });
   };
 
-  handleClick = () => {
+  clickHandler = () => {
     this.setState({ hasClock: true });
   };
 
